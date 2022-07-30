@@ -61,7 +61,7 @@ end
 function widget.create(zone, options)
   widget = { zone=zone, options=options, textFlags = MIDSIZE, labelFlags = SMLSIZE + SHADOWED + CENTER, gaugeFlags = COLOR_THEME_SECONDARY1, lyo = 0, lyo2 = 0, yo = 0, margin = 0, border = 0}
    
-  if widget.zone.w  > 240 then
+  if widget.zone.w  > 240 and widget.zone.h > 56 then
     widget.textFlags = XXLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.labelFlags = MIDSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
     widget.gaugeFlags = COLOR_THEME_FOCUS
@@ -69,8 +69,8 @@ function widget.create(zone, options)
     widget.lyo = 25
     widget.lyo2 = 35
     widget.margin = 3
-    widget.border = 1
-  elseif 	widget.zone.w  > 70 then
+    widget.border = 3
+  elseif 	widget.zone.w  > 70 and widget.zone.h > 56 then
     widget.textFlags = DBLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
     widget.gaugeFlags = COLOR_THEME_FOCUS
@@ -78,10 +78,19 @@ function widget.create(zone, options)
     widget.lyo = 10
     widget.lyo2 = 20
     widget.margin = 3
-    widget.border = 1
+    widget.border = 3
+  elseif widget.zone.h >= 56 then
+    widget.textFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
+    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
+    widget.gaugeFlags = COLOR_THEME_FOCUS
+    widget.yo = widget.zone.h / 2 - 8
+    widget.lyo = 8
+    widget.lyo2 = 18
+    widget.margin = 1
+    widget.border = 3
   else
     widget.textFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
-    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
+    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.gaugeFlags = COLOR_THEME_ACTIVE
     widget.yo = widget.zone.h / 2 - 8
     widget.lyo = 8

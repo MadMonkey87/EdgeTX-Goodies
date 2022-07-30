@@ -68,10 +68,11 @@ local function HasWarning(totalizedValue)
   end
 end
 
-local function render(x,y,w,h,totalizedValue, margin, border)
+local function render(x,y,w,h,totalizedValue, margin, border, color, backgroundColor)
   local borderColor = COLOR_THEME_SECONDARY1
-  local backgroundColor = COLOR_THEME_PRIMARY3
-  local color = COLOR_THEME_FOCUS
+  if h<56 then
+    borderColor = COLOR_THEME_ACTIVE
+  end
   if (HasWarning(totalizedValue)) then
     color = COLOR_THEME_WARNING
   end
@@ -86,35 +87,42 @@ local function render(x,y,w,h,totalizedValue, margin, border)
 end
 
 function widget.create(zone, options)
-  widget = { zone=zone, options=options, textFlags = MIDSIZE, labelFlags = SMLSIZE + SHADOWED + CENTER, pieFlags = COLOR_THEME_SECONDARY1, lyo = 0, lyo2 = 0, yo = 0, margin = 0, border = 0}
+  widget = { zone=zone, options=options, textFlags = MIDSIZE, labelFlags = SMLSIZE + SHADOWED + CENTER, lyo = 0, lyo2 = 0, yo = 0, margin = 0, border = 0, color = COLOR_THEME_FOCUS, backgroundColor = COLOR_THEME_PRIMARY3}
    
-  if widget.zone.w  > 240 then
+  if widget.zone.w  > 240 and widget.zone.h > 56 then
     widget.textFlags = XXLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.labelFlags = MIDSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
-    widget.pieFlags = COLOR_THEME_FOCUS
     widget.yo = widget.zone.h / 2 - 38
     widget.lyo = 25
     widget.lyo2 = 35
     widget.margin = 3
     widget.border = 3
-  elseif 	widget.zone.w  > 70 then
+  elseif 	widget.zone.w  > 70 and widget.zone.h > 56 then
     widget.textFlags = DBLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
-    widget.pieFlags = COLOR_THEME_FOCUS
     widget.yo = widget.zone.h / 2 - 20
     widget.lyo = 10
     widget.lyo2 = 20
     widget.margin = 3
     widget.border = 3
+  elseif widget.zone.h >= 56 then
+    widget.textFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
+    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
+    widget.yo = widget.zone.h / 2 - 8
+    widget.lyo = 8
+    widget.lyo2 = 18
+    widget.margin = 1
+    widget.border = 2
   else
     widget.textFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
-    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY2
-    widget.pieFlags = RED
+    widget.labelFlags = SMLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.yo = widget.zone.h / 2 - 8
     widget.lyo = 8
     widget.lyo2 = 18
     widget.margin = 0
-    widget.border = 1
+    widget.border = 2
+    widget.backgroundColor = COLOR_THEME_SECONDARY1
+    widget.color = COLOR_THEME_ACTIVE
   end
   
   return widget
@@ -122,7 +130,7 @@ end
 
 function gui.fullScreenRefresh()
   local value = getValue(widget.options.Source)
-  lcd.drawFilledRectangle(0, 0, LCD_W, HEADER, COLOR_THEME_SECONDARY1)
+  lcd.drawFilledRectangle(0, 0, LCD_W, HEADER, COLOR_THEME_SECONDARY1, COLOR_THEME_PRIMARY3)
   local warn = HasWarning(getTotalizedValue(value))
   local text = "Pie PRO"
   if(hasLabel()) then
@@ -140,7 +148,7 @@ function gui.fullScreenRefresh()
 	  lcd.drawText(LCD_W / 2, (LCD_H - HEADER) / 2 + HEADER, "NO VALUE", widget.textFlags + BLINK + INVERS + VCENTER)
   else
     totalizedValue = getTotalizedValue(value)
-    render(0, HEADER, LCD_W, LCD_H - HEADER, totalizedValue, 20, 5)
+    render(0, HEADER, LCD_W, LCD_H - HEADER, totalizedValue, 20, 5, COLOR_THEME_FOCUS, COLOR_THEME_PRIMARY3)
     lcd.drawText(LCD_W / 2, (LCD_H - HEADER) / 2 + HEADER, totalizedValue.."%", widget.textFlags + VCENTER)
   end
 
@@ -165,7 +173,7 @@ function libGUI.widgetRefresh()
 	  lcd.drawText(xo, yo, "NO VALUE", widget.textFlags + BLINK + INVERS)
   else
     totalizedValue = getTotalizedValue(value)
-    render(widget.zone.x, widget.zone.y, widget.zone.w, widget.zone.h, totalizedValue, widget.margin, widget.border)
+    render(widget.zone.x, widget.zone.y, widget.zone.w, widget.zone.h, totalizedValue, widget.margin, widget.border, widget.color, widget.backgroundColor)
     if (hasLabel) then
       lcd.drawText(xo, yo - widget.lyo *2, widget.options.Label, widget.labelFlags)
     end

@@ -107,7 +107,7 @@ end
 function widget.create(zone, options)
   widget = { zone=zone, options=options, ts = MIDSIZE, yo = 0, ls = SMLSIZE + SHADOWED + CENTER, lyo = 0, lyo2 = 0, unit = "", desc = "" }
 
-  if widget.zone.w  > 240 then
+  if widget.zone.w  > 240  then
     widget.ts = XXLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE
     widget.ls = MIDSIZE + SHADOWED + CENTER + COLOR_THEME_PRIMARY3
     widget.yo = widget.zone.h / 2 - 38
@@ -147,7 +147,7 @@ function gui.fullScreenRefresh()
 
   lcd.drawText(xo, LCD_H - 40, widget.desc, SHADOWED + CENTER + COLOR_THEME_PRIMARY3)
 
-  if(value == nil) then
+  if value == nil then
     lcd.drawText(xo, yo, "NO VALUE", XXLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE + BLINK + INVERS)
   elseif (widget.options.Percent == 1) then
     percentValue = getPercentValue(value)
@@ -165,11 +165,11 @@ function libGUI.widgetRefresh()
 	local xo = widget.zone.x + (widget.zone.w / 2)
 	local yo = widget.zone.y + widget.yo
 
-  if (hasLabel) then
+  if hasLabel then
     yo = yo + widget.lyo
   end
 
-  if(value == nil) then
+  if value == nil then
     lcd.drawText(xo, yo, "NO VALUE", widget.ts + BLINK + INVERS)
   elseif (widget.options.Percent == 1) then
     percentValue = getPercentValue(value)
@@ -180,7 +180,7 @@ function libGUI.widgetRefresh()
     lcd.drawText(xo, yo, string.format("%2.1f", value)..widget.unit, widget.ts)
   end
 
-  if (hasLabel) then
+  if hasLabel then
     --lcd.drawSource(xo, yo - widget.lyo2, widget.options.Source, widget.ls)
     lcd.drawText(xo, yo - widget.lyo2, widget.options.Label, widget.ls)
   end
