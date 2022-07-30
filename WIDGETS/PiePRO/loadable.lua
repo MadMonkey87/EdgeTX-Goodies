@@ -69,7 +69,7 @@ local function HasWarning(totalizedValue)
 end
 
 local function render(x,y,w,h,totalizedValue, margin, border, color, backgroundColor)
-  local borderColor = COLOR_THEME_SECONDARY1
+  local borderColor = COLOR_THEME_ACTIVE
   if h<56 then
     borderColor = COLOR_THEME_ACTIVE
   end

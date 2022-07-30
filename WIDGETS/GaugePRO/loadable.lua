@@ -126,9 +126,9 @@ function gui.fullScreenRefresh()
   if (widget.options.Totalize == 1) then
     textValue = totalizedValue.."%"
   end
-  lcd.drawGauge(margin, HEADER+margin, LCD_W-2*margin, LCD_H - HEADER - 2*margin, totalizedValue, 100, COLOR_THEME_ACTIVE)
-  lcd.drawRectangle(margin, HEADER+margin, LCD_W-2*margin, LCD_H - HEADER - 2*margin, COLOR_THEME_SECONDARY1, 3)
-	lcd.drawText(xo, yo, textValue, XXLSIZE + SHADOWED + CENTER + COLOR_THEME_SECONDARY1)
+  lcd.drawGauge(margin, HEADER+margin, LCD_W-2*margin, LCD_H - HEADER - 2*margin, totalizedValue, 100, COLOR_THEME_FOCUS)
+  lcd.drawRectangle(margin, HEADER+margin, LCD_W-2*margin, LCD_H - HEADER - 2*margin, COLOR_THEME_ACTIVE, 3)
+	lcd.drawText(xo, yo, textValue, XXLSIZE + SHADOWED + CENTER + COLOR_THEME_ACTIVE)
 end
 
 function libGUI.widgetRefresh()
@@ -156,7 +156,7 @@ function libGUI.widgetRefresh()
   lcd.drawGauge(widget.zone.x + widget.margin, widget.zone.y + widget.margin, widget.zone.w-2*widget.margin, widget.zone.h-2*widget.margin, totalizedValue, 100, widget.gaugeFlags)
 
   if widget.border>0 then
-    lcd.drawRectangle(widget.zone.x + widget.margin, widget.zone.y + widget.margin, widget.zone.w-2*widget.margin, widget.zone.h-2*widget.margin, COLOR_THEME_SECONDARY1, widget.border)
+    lcd.drawRectangle(widget.zone.x + widget.margin, widget.zone.y + widget.margin, widget.zone.w-2*widget.margin, widget.zone.h-2*widget.margin, COLOR_THEME_ACTIVE, widget.border)
   end
 
 	lcd.drawText(xo, yo, textValue, widget.textFlags)
