@@ -178,8 +178,4 @@ function widget.refresh(event, touchState)
   gui.run(event, touchState)
 end
 
-function widget.update(opt)
-	options = opt
-end
-
 return widget

@@ -54,7 +54,7 @@ local options = {
 }
 
 local function update(widget, options)
-	widget.update(options)
+	widget.update(widget, options)
 end
 
 return {
