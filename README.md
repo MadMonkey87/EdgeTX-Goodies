@@ -39,6 +39,7 @@ Note: you'll propably need to adjust the script for your own warnings
 
 ## Horizon
 Coming soon
+
 ![alt](./SCREENSHOTS/screenshot_tx16s_22-08-07_17-06-31.png)
 
 ## BattCheck
@@ -49,6 +50,7 @@ Note: this is not my widget, I've just extended it to use the EdgeTX theme color
 
 ## Grown Up Theme
 A simple, clean and professional theme
+
 ![alt](./THEMES/GrownUp/Screenshot1.png)
 ![alt](./THEMES/GrownUp/Screenshot2.png)
 ![alt](./THEMES/GrownUp/Screenshot3.png)
