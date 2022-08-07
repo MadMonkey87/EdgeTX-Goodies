@@ -40,7 +40,6 @@ local COL1   = 10
 local TOP    = 44
 local ROW    = 28
 local HEIGHT = 24
-local throttleSource = 'thr'
 
 local widget = { }
 
@@ -74,7 +73,7 @@ end
 local preArmButton
 
 local function preArmButtonChanged(button)
-  if button.value and getValue(throttleSource) == -1024 and getValue(options.ThrottleCut) < 1000 then
+  if button.value and getValue(options.Throttle) == -1024 and getValue(options.ThrottleCut) < 1000 then
     setStickySwitch(options.PreArmLS-1, button.value)
   else
     setStickySwitch(options.PreArmLS-1, false)
@@ -99,7 +98,7 @@ function gui.fullScreenRefresh()
   local prearm = getls(options.PreArmLS)
   local arm = getls(options.ArmLS)
   local throttleCut = getValue(options.ThrottleCut) == 1024
-  local throttle = getValue(throttleSource)
+  local throttle = getValue(options.Throttle)
 
   preArmButton.value = prearm
   preArmButton.disabled = selfcheck or throttle ~=-1024 or throttleCut
@@ -143,7 +142,7 @@ function libGUI.widgetRefresh()
   local prearm = getls(options.PreArmLS)
   local arm = getls(options.ArmLS)
   local throttleCut = getValue(options.ThrottleCut) == 1024
-  local throttle = getValue(throttleSource)
+  local throttle = getValue(options.Throttle)
 
   if arm then
     lcd.drawText(zone.w / 2, zone.h / 2, "ARMED", BLINK + CENTER + VCENTER + BOLD + COLOR_THEME_WARNING + SHADOWED)

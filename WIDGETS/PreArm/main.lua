@@ -45,8 +45,9 @@ end
 
 local options = {
 	{ "PreArmLS", VALUE, 1, 1, 64 },
-  { "ThrottleCut", SOURCE },
   { "ArmLS", VALUE, 2, 1, 64 },
+  { "ThrottleCut", SOURCE },
+  { "Throttle", SOURCE }
 }
 
 local function update(widget, options)
