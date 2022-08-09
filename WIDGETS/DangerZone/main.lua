@@ -33,7 +33,8 @@ function loadGUI()
 end
 
 local function create(zone, options)
-  return loadScript("/WIDGETS/" .. name .. "/loadable.lua")(zone, options)
+  widget = loadScript("/WIDGETS/" .. name .. "/loadable.lua")(zone, options)
+  return widget
 end
 
 local function refresh(widget, event, touchState)
