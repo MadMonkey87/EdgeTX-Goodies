@@ -1,0 +1,1 @@
+This is a custom widget I made specificially for my purpose. Therefore it might not be suitable for you but there is the "PreArm" widget wich is basically the same widget but intended for usage in general.
