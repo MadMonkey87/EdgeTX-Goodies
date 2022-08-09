@@ -423,7 +423,7 @@ function lib.newGUI()
       local border = lib.colors.active
 
       if self.value then
-        fg = lib.colors.primary1
+        fg = lib.colors.primary3
         bg = lib.colors.active
         border = lib.colors.focus
       end
