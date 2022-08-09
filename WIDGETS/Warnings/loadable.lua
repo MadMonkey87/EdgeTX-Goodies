@@ -43,13 +43,13 @@ local errorCount = 0
 
 -- level 2 = red,  1 = yellow
 local warnings = {
-  { name = "Battery Critical", stickyswitch = 4, level = 2 },
-  { name = "Failsafe", stickyswitch = 27, level = 2 },
-  { name = "Flaps Warning", stickyswitch = 5, level = 1 },
-  { name = "Gear Warning", stickyswitch = 6, level = 1 },
-  { name = "Low Battery", stickyswitch = 2, level = 1 },
-  { name = "High Consumption", stickyswitch = 7, level = 1 },
-  { name = "Low Rates", stickyswitch = 8, level = 1 }
+  { name = "Battery Critical", switch = 4, level = 2 },
+  { name = "Failsafe", switch = 27, level = 2 },
+  { name = "Flaps Warning", switch = 5, level = 1 },
+  { name = "Gear Warning", switch = 6, level = 1 },
+  { name = "Low Battery", switch = 2, level = 1 },
+  { name = "High Consumption", switch = 7, level = 1 },
+  { name = "Low Rates", switch = 8, level = 1 }
 }	
 
 function custom.draw(focused)
@@ -79,7 +79,7 @@ local function calculate()
   activeWarnings = {}
 
   for key, value in pairs(warnings) do
-    if getls(value.stickyswitch) then
+    if getls(value.switch) then
       highestLevel = math.max(highestLevel, value.level)
       table.insert(activeWarnings, { name = value.name, level = value.level })
     end
@@ -154,7 +154,6 @@ function gui.fullScreenRefresh()
 
 end
 
--- Draw in widget mode
 function libGUI.widgetRefresh()
 
   calculate()
