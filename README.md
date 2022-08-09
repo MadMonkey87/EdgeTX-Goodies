@@ -37,6 +37,10 @@ A widget to provide an extended throttle cut for better security
 A widget that displays warnings and error together with a status indicator. 
 Note: you'll propably need to adjust the script for your own warnings
 
+![alt](./SCREENSHOTS/screenshot_tx16s_22-08-09_23-31-48.png)
+![alt](./SCREENSHOTS/screenshot_tx16s_22-08-09_23-32-17.png)
+![alt](./SCREENSHOTS/screenshot_tx16s_22-08-09_23-32-26.png)
+
 ## Horizon
 Coming soon
 
