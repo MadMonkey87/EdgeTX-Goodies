@@ -104,7 +104,7 @@ local function render(x, y, w, h, textSize, textOffset, textMargin)
   else
     lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius, 0, radius, 0,360, COLOR_THEME_PRIMARY3)
   end
-  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius, radius, radius + 3, 0,360, COLOR_THEME_SECONDARY1)
+  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius, radius, radius + 3, 0,360, COLOR_THEME_FOCUS)
 
 
   if (highestLevel == 1) then
@@ -112,7 +112,7 @@ local function render(x, y, w, h, textSize, textOffset, textMargin)
   else
     lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*3+trafficLightPadding, 0, radius, 0,360, COLOR_THEME_PRIMARY3)
   end
-  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*3+trafficLightPadding, radius, radius + 3, 0,360, COLOR_THEME_SECONDARY1)
+  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*3+trafficLightPadding, radius, radius + 3, 0,360, COLOR_THEME_FOCUS)
 
 
   if (highestLevel <=0 ) then
@@ -120,7 +120,7 @@ local function render(x, y, w, h, textSize, textOffset, textMargin)
   else
     lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*5+trafficLightPadding*2, 0, radius, 0,360, COLOR_THEME_PRIMARY3)
   end
-  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*5+trafficLightPadding*2, radius, radius + 3, 0,360, COLOR_THEME_SECONDARY1)
+  lcd.drawAnnulus(x + w - trafficLightMargin - radius - trafficLightPadding/2, y + trafficLightPadding/2 + trafficLightMargin+radius*5+trafficLightPadding*2, radius, radius + 3, 0,360, COLOR_THEME_FOCUS)
 
   if (highestLevel <= 0) then
     lcd.drawText((x + w - trafficLightMargin - 2*radius)/2, y + h / 2, "No Warnings", VCENTER + CENTER + BOLD + SHADOWED + COLOR_THEME_ACTIVE + textSize)
