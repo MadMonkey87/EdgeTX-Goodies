@@ -6,6 +6,7 @@
 -- Author:  Philippe Wechsler                                            --
 -- Date:    2022-07-23                                                   --
 -- Version: 1.0.0                                                        --
+-- Source: https://github.com/MadMonkey87/EdgeTX-Goodies                 --
 --                                                                       --
 -- Copyright (C) Philippe Wechsler                                       --
 --                                                                       --

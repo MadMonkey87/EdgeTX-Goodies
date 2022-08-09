@@ -4,8 +4,9 @@
 -- Author:  Philippe Wechsler                                            --
 -- Date:    2022-07-11                                                   --
 -- Version: 1.0.0                                                        --
+-- Source: https://github.com/MadMonkey87/EdgeTX-Goodies                 --
 --                                                                       --
--- Copyright (C) EdgeTX                                                  --
+-- Copyright (C) Philippe Wechsler                                       --
 --                                                                       --
 -- License GPLv2: http://www.gnu.org/licenses/gpl-2.0.html               --
 --                                                                       --
