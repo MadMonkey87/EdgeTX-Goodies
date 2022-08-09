@@ -41,8 +41,8 @@ local function refresh(widget, event, touchState)
   widget.refresh(event, touchState)
 end
 
-local function background(widget)
-  widget.background(widget)
+local function background()
+  widget.background()
 end
 
 local options = {
@@ -54,7 +54,7 @@ local options = {
 }
 
 local function update(widget, options)
-	widget.update(widget, options)
+	widget.update(options)
 end
 
 return {

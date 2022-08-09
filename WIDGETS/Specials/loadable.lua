@@ -141,15 +141,15 @@ function libGUI.widgetRefresh()
   lcd.drawText(zone.w / 2, 117, "Fire", CENTER + COLOR_THEME_PRIMARY1)
 end
 
-function widget.background(widget)
+function widget.background()
 end
 
 function widget.refresh(event, touchState)
   gui.run(event, touchState)
 end
 
-function widget.update(opt)
-	options = opt
+function widget.update(options)
+	widget.options = options
 end
 
 return widget

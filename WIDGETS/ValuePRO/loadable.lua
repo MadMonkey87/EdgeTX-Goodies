@@ -186,11 +186,11 @@ function libGUI.widgetRefresh()
   end
 end
 
-function widget.background(widget)
+function widget.background()
 
 end
 
-function widget.update(widget, options)
+function widget.update(options)
   widget.options = options
 
   updateUnit()
@@ -198,10 +198,6 @@ end
 
 function widget.refresh(event, touchState)
   gui.run(event, touchState)
-end
-
-function widget.update(opt)
-	options = opt
 end
 
 return widget

@@ -181,11 +181,11 @@ function libGUI.widgetRefresh()
   end
 end
 
-function widget.background(widget)
+function widget.background()
 
 end
 
-function widget.update(widget, options)
+function widget.update(options)
   widget.options = options
 end
 
