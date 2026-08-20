@@ -105,10 +105,10 @@ function drawGrap(context)
 	y = context.zone.y
 	width = context.zone.w
 	height = context.zone.h
-	fordergroundColor = COLOR_THEME_ACTIVE
+	fordergroundColor = COLOR_THEME_SECONDARY2
+	textcolor = COLOR_THEME_PRIMARY2
 
 	if (width  > 70) then
-		fordergroundColor = COLOR_THEME_SECONDARY1
 		lcd.drawRectangle(x, y, width, height, fordergroundColor)
 	end
 
@@ -178,35 +178,35 @@ function drawGrap(context)
 	if context.zone.w > 100 then
 		if range >= 100 then
 			if (context.options.Percent == 1) then
-				lcd.drawText(x + width -2, y + 1, percentValue.." %", TEXT_COLOR + RIGHT)
+				lcd.drawText(x + width -2, y + 1, percentValue.." %", textcolor + RIGHT)
 			else
-				--lcd.drawNumber(x + width -2, y + 1, value, TEXT_COLOR + RIGHT)
-				lcd.drawText(x + width -2, y + 1, value.." "..context.unit, TEXT_COLOR + RIGHT)
+				--lcd.drawNumber(x + width -2, y + 1, value, textcolor + RIGHT)
+				lcd.drawText(x + width -2, y + 1, value.." "..context.unit, textcolor + RIGHT)
 			end
 
-			lcd.drawNumber(x + 3, y + 1, maxValue, TEXT_COLOR)
-			lcd.drawNumber(x + 3, y + height - 19, minValue, TEXT_COLOR)
+			lcd.drawNumber(x + 3, y + 1, maxValue, textcolor)
+			lcd.drawNumber(x + 3, y + height - 19, minValue, textcolor)
 		else 
 			if range >= 10 then
 				if (context.options.Percent == 1) then
-					lcd.drawText(x + width -2, y + 1, percentValue.." %", TEXT_COLOR + RIGHT + PREC1)
+					lcd.drawText(x + width -2, y + 1, percentValue.." %", textcolor + RIGHT + PREC1)
 				else
-					--lcd.drawNumber(x + width, y + 1, value * 10, TEXT_COLOR + RIGHT + PREC1)
-					lcd.drawText(x + width -2, y + 1, (value * 10).." "..context.unit, TEXT_COLOR + RIGHT + PREC1)
+					--lcd.drawNumber(x + width, y + 1, value * 10, textcolor + RIGHT + PREC1)
+					lcd.drawText(x + width -2, y + 1, (value * 10).." "..context.unit, textcolor + RIGHT + PREC1)
 				end
 
-				lcd.drawNumber(x + 3, y + 1, maxValue * 10, TEXT_COLOR + PREC1)
-				lcd.drawNumber(x + 3, y + height - 19, minValue * 10, TEXT_COLOR + PREC1)
+				lcd.drawNumber(x + 3, y + 1, maxValue * 10, textcolor + PREC1)
+				lcd.drawNumber(x + 3, y + height - 19, minValue * 10, textcolor + PREC1)
 			else
 				if (context.options.Percent == 1) then
-					lcd.drawText(x + width -2, y + 1, (value * 100).." "..context.unit, TEXT_COLOR + RIGHT + PREC2)
+					lcd.drawText(x + width -2, y + 1, (value * 100).." "..context.unit, textcolor + RIGHT + PREC2)
 				else
-					--lcd.drawNumber(x + width, y + 1, value * 100, TEXT_COLOR + RIGHT + PREC2)
-					lcd.drawText(x + width -2, y + 1, percentValue.." %", TEXT_COLOR + RIGHT + PREC2)
+					--lcd.drawNumber(x + width, y + 1, value * 100, textcolor + RIGHT + PREC2)
+					lcd.drawText(x + width -2, y + 1, percentValue.." %", textcolor + RIGHT + PREC2)
 				end
 
-				lcd.drawNumber(x + 3, y + 1, maxValue * 100, TEXT_COLOR + PREC2)
-				lcd.drawNumber(x + 3, y + height - 19, minValue * 100, TEXT_COLOR + PREC2)
+				lcd.drawNumber(x + 3, y + 1, maxValue * 100, textcolor + PREC2)
+				lcd.drawNumber(x + 3, y + height - 19, minValue * 100, textcolor + PREC2)
 			end
 		end
 
